@@ -7,6 +7,11 @@ from matplotlib import dates as mpl_dates
 
 
 solarData = pd.read_csv('25112020.csv')
+
+print("SUMMARY")
+print("Solar power used is : " + str(solarData['Site - PV Power'].sum()))
+print("Grid power used is : " + str(solarData['Site - Grid Power'].sum()))
+print("Battery power used is : " + str(solarData['Site - Battery Power'].sum()))
 solarData.Timestamp = pd.to_datetime(solarData.Timestamp)
 tim = solarData.Timestamp
 plt.plot(tim, solarData['Site - PV Power'], label="PV")
